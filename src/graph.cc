@@ -516,6 +516,7 @@ Node* Graph::createNode(const onnx::NodeProto &onnx_node)
 	if( opName == "GreaterOrEqual")return new Elementwise_2("GreaterOrEqual");
 	if( opName == "HardSigmoid" )return new Elementwise("HardSigmoid");
 	if( opName == "HardSwish" )return new Elementwise("HardSwish");
+	if( opName == "Identity" )return new Elementwise("Identity");
 	if( opName == "InstanceNormalization" )return new InstanceNormalization;
 	if( opName == "LeakyRelu" )return new Elementwise("LeakyRelu");
 	if( opName == "Less")return new Elementwise_2("Less");

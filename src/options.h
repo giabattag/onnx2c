@@ -32,6 +32,7 @@ struct onnx2c_opts
 	int logging_level=DEFAULT_LOG_LEVEL;  // Default level set by CMake. 1 in release, 4 in debug builds
 	std::string input_file;
 	std::map<std::string, uint32_t> dim_defines;
+	std::string entry_function_name="entry";
 };
 
 extern struct onnx2c_opts options;

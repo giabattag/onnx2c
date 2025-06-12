@@ -123,6 +123,7 @@ void parse_cmdline_options(int argc, const char *argv[])
 	args::Flag help(parser, "help", "Print this help text.", {'h',"help"});
 	args::Flag quantize(parser, "quantize", "Quantize network (EXPERIMENTAL!)", {'q', "quantize"});
 	args::Flag version(parser, "version", "Print onnx2c version", {'v', "version"});
+	args::ValueFlag<std::string> entry_function_name(parser, "entry", "Entry function name (default='entry')", {"e", "entry"});
 	args::Positional<std::string> input(parser, "input", "ONNX file to process");
 	try
 	{
@@ -148,6 +149,7 @@ void parse_cmdline_options(int argc, const char *argv[])
 	if (help) { std::cout << parser; exit(0); }
 	if (version) { print_version_and_exit(); }
 	if (loglevel) {options.logging_level = args::get(loglevel); }
+	if (entry_function_name) {options.entry_function_name = args::get(entry_function_name);}
 
 	// initialize logging as soon as possible, so logging is available in parsing the options too
 	initialize_logging();

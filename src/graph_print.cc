@@ -154,8 +154,7 @@ void Graph::print_includes(std::ostream &dst)
 void Graph::print_interface_function(std::ostream &dst, bool definition)
 {
 	bool isfirst = true;
-	// TODO: take the interface function name from the ONNX file name
-	dst << "void entry(" ;
+	dst << "void " << options.entry_function_name << "(" ;
 	for ( auto i : model.graph().input() ) {
 		/* TODO: FIXME: separate input tensors that are initialized
 		 * or re-initializable (and therefore count as input), from

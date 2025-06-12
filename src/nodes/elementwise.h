@@ -75,6 +75,9 @@ class Elementwise : public Node {
 				std::string b = std::to_string(beta);
 				return x+"*fmax(0, fmin(1, "+a+"*"+x+"+"+b+"));";};
 		}
+		else if( op == "Identity" ) {
+			operation = [](const std::string& x){return  x+";";};
+		}
 		else if( op == "LeakyRelu" ) {
 			alpha=0.01f;
 			operation = [this](const std::string& x){
