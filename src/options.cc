@@ -123,7 +123,7 @@ void parse_cmdline_options(int argc, const char *argv[])
 	args::Flag help(parser, "help", "Print this help text.", {'h',"help"});
 	args::Flag quantize(parser, "quantize", "Quantize network (EXPERIMENTAL!)", {'q', "quantize"});
 	args::Flag version(parser, "version", "Print onnx2c version", {'v', "version"});
-	args::ValueFlag<std::string> entry_function_name(parser, "entry", "Entry function name (default='entry')", {"e", "entry"});
+	args::ValueFlag<std::string> entry_function_name(parser, "entry", "Entry function name (default='entry')", {'e', "entry"});
 	args::Positional<std::string> input(parser, "input", "ONNX file to process");
 	try
 	{
